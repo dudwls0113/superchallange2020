@@ -21,14 +21,15 @@
         tools:targetApi="n">
 
         <activity android:name=".src.seat_choice.SeatChoiceActivity">
+        </activity>
+        <activity android:name=".src.station.StationActivity" />
+        <activity android:name=".src.curation.CurationActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".src.station.StationActivity" />
-        <activity android:name=".src.curation.CurationActivity" />
         <activity android:name=".src.main.MainActivity">
 
             <!-- <intent-filter> -->

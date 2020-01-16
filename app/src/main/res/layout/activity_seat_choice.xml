@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context=".src.seat_choice.SeatChoiceActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@color/colorWhite"
+        android:background="@color/colorPrimary"
         android:elevation="10dp"
         android:orientation="horizontal">
 
@@ -31,9 +32,17 @@
             android:gravity="center"
             android:lineSpacingExtra="8sp"
             android:text="좌석 선택"
-            android:textColor="@color/colorBlack"
-            android:textSize="16sp"
+            android:textColor="@color/colorWhite"
+            android:textSize="25sp"
             android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="20sp"
+            android:src="@drawable/ic_dot" />
+
     </FrameLayout>
 
     <FrameLayout
@@ -47,7 +56,7 @@
         <Spinner
             android:id="@+id/activity_seat_choice_spinner"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="45dp"
             android:layout_gravity="center_vertical"
             android:background="@drawable/bg_rec_trans_gray" />
 
@@ -61,6 +70,31 @@
 
     </FrameLayout>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/src_seat">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="남은 여석"
+            android:textColor="@color/colorBlack"
+            
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
