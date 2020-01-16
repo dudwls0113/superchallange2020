@@ -24,6 +24,9 @@ public class ApplicationClass extends Application {
     // 실서버 주소
 //    public static String BASE_URL = "https://template.softsquared.com/";
 
+    public static int channel_id=0;
+
+
     public static SharedPreferences sSharedPreferences = null;
 
     // SharedPreferences 키 값

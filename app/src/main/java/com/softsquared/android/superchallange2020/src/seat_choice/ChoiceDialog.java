@@ -24,7 +24,7 @@ public class ChoiceDialog extends Dialog {
         mTextViewOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCustomLIstener.goUpdateClick();
+                mCustomLIstener.yesClick();
                 dismiss();
             }
         });
@@ -33,7 +33,7 @@ public class ChoiceDialog extends Dialog {
         mTextViewCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCustomLIstener.cancelClick();
+                mCustomLIstener.noClick();
                 dismiss();
 
             }
@@ -42,8 +42,8 @@ public class ChoiceDialog extends Dialog {
     }
 
     public interface CustomLIstener {
-        void goUpdateClick();
+        void yesClick();
 
-        void cancelClick();
+        void noClick();
     }
 }

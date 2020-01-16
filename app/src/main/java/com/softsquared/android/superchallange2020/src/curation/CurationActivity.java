@@ -4,14 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.softsquared.android.superchallange2020.R;
 import com.softsquared.android.superchallange2020.src.station.StationActivity;
 
 public class CurationActivity extends AppCompatActivity {
     TextView mTextViewJuan;
+    String fcmToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,5 +32,15 @@ public class CurationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(this,
+                new OnSuccessListener<InstanceIdResult>() {
+                    @Override
+                    public void onSuccess(InstanceIdResult instanceIdResult) {
+                        fcmToken = instanceIdResult.getToken();
+                        Log.d("Firebase", "token: " + fcmToken);
+//                        patchFcmToken();
+                    }
+                });
     }
 }
