@@ -1,46 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:id="@+id/coordinator"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:fitsSystemWindows="true"
-android:orientation="vertical">
-
-<RelativeLayout
+    android:id="@+id/coordinator"
     android:layout_width="match_parent"
-    android:layout_height="56dp">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#D77084"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_sign_up_top"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="임산부 인증"
-        android:textColor="@color/colorBlack"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_height="56dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="임산부 인증"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            />
+
+        <ImageView
+            android:id="@+id/iv_verify_close"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="12dp"
+            android:onClick="customOnClick"
+            android:paddingStart="12sp"
+            android:paddingTop="12dp"
+            android:paddingEnd="12sp"
+            android:paddingBottom="12dp"
+            android:src="@drawable/ic_back" />
+
+    </RelativeLayout>
+
 
     <ImageView
-        android:id="@+id/iv_sign_up_close"
-        android:layout_width="44dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="12dp"
-        android:onClick="onClick"
-        android:paddingStart="12sp"
-        android:paddingTop="12dp"
-        android:paddingEnd="12sp"
-        android:paddingBottom="12dp"
-        android:src="@drawable/ic_back" />
-
-</RelativeLayout>
-
-
-
-
-    <ImageView
-        android:id="@+id/review_write_iv_photo_1"
+        android:id="@+id/iv_verify"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_marginHorizontal="20dp"
@@ -52,9 +51,9 @@ android:orientation="vertical">
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:layout_weight="1"
         android:background="#f3f4f9"
-        android:layout_marginTop="20dp"
         android:text="임산부임을 증명할 수 있는 자료를 업로드 해주시기 바랍니다." />
 
     <FrameLayout
@@ -62,13 +61,13 @@ android:orientation="vertical">
         android:layout_height="58dp">
 
         <TextView
-            android:id="@+id/tv_sign_up_btn"
+            android:id="@+id/tv_verify_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"
             android:gravity="center"
             android:onClick="customOnClick"
-            android:text="다음"
+            android:text="회원가입"
             android:textColor="@color/colorWhite"
             android:textSize="18sp"
             android:textStyle="bold" />

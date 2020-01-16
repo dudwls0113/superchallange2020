@@ -2,6 +2,7 @@ package com.softsquared.android.superchallange2020.src.curation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,18 +13,23 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.softsquared.android.superchallange2020.R;
+import com.softsquared.android.superchallange2020.src.BaseActivity;
+import com.softsquared.android.superchallange2020.src.curation.interfaces.CurationActivityView;
 import com.softsquared.android.superchallange2020.src.main.SeatCheckDialog;
 import com.softsquared.android.superchallange2020.src.seat_choice.SeatChoiceActivity;
 import com.softsquared.android.superchallange2020.src.station.StationActivity;
 
-public class CurationActivity extends AppCompatActivity {
+import org.json.JSONObject;
+
+public class CurationActivity extends BaseActivity implements CurationActivityView {
     TextView mTextViewJuan;
     String fcmToken;
-
+    Context mContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_curation);
+        mContext = this;
 
         mTextViewJuan = findViewById(R.id.activity_curation_tv_juan);
 
@@ -50,7 +56,17 @@ public class CurationActivity extends AppCompatActivity {
                 SeatCheckDialog seatChoiceActivity = new SeatCheckDialog(this, new SeatCheckDialog.CustomLIstener() {
                     @Override
                     public void yesClick() {
-
+                        int seatNum = getIntent().getIntExtra("seatNo", 0);
+                        JSONObject params = new JSONObject();
+                        try {
+                            params.put("seatNo", seatNum);
+                        } catch (Exception e) {
+                            //   Log.d(TAG, "error: " + e);
+                            return;
+                        }
+                        showProgressDialog();
+                        final CurationService curationService = new CurationService((CurationActivityView)mContext ,params);
+                        curationService.postReservation();
                     }
 
                     @Override
@@ -64,5 +80,17 @@ public class CurationActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    @Override
+    public void reservationSuccess(String text) {
+        hideProgressDialog();
+        showCustomToast(text);
+    }
+
+    @Override
+    public void reservationFailure(String message) {
+        hideProgressDialog();
+        showCustomToast(message);
     }
 }
