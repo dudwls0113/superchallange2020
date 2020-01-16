@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="@color/colorPrimary"
     tools:context=".src.splash.SplashActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
         android:layout_centerInParent="true"
-        android:textSize="40sp"
-        android:text="Lb"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimary" />
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_logo"
+        />
 
 </RelativeLayout>

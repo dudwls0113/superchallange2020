@@ -32,6 +32,22 @@ public class SignUpActivity extends BaseActivity {
     public void customOnClick(View view) {
         switch (view.getId()) {
             case R.id.tv_sign_up_btn:
+
+                if(mEdtId.getText().toString().equals("")){
+                    showCustomToast("ID를 입력하세요.");
+                    break;
+                }
+
+                if(mEdtName.getText().toString().equals("")){
+                    showCustomToast("이름을 입력하세요.");
+                    break;
+                }
+
+                if(mEdtPassword.getText().toString().equals("")){
+                    showCustomToast("패스워드를 입력하세요.");
+                    break;
+                }
+
                 if(!mEdtPassword.getText().toString().equals(mEdtPasswordVerify.getText().toString())){
                     showCustomToast("비밀번호가 다릅니다.");
                     break;

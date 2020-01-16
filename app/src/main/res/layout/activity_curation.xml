@@ -81,6 +81,7 @@
             android:background="@android:color/darker_gray" />
 
         <LinearLayout
+            android:id="@+id/activity_curation_tv_juan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -92,7 +93,6 @@
                 android:src="@drawable/ic_first" />
 
             <TextView
-                android:id="@+id/activity_curation_tv_juan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

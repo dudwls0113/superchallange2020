@@ -25,6 +25,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.softsquared.android.superchallange2020.R;
 import com.softsquared.android.superchallange2020.src.BaseActivity;
 import com.softsquared.android.superchallange2020.src.curation.CurationActivity;
@@ -227,12 +230,12 @@ public class VerifyActivity extends BaseActivity implements VerifyActivityView {
         } else if (requestCode == CROP_FROM_CAMERA) {
             try { //저는 bitmap 형태의 이미지로 가져오기 위해 아래와 같이 작업하였으며 Thumbnail을 추출하였습니다.
 
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), photoUri);
-                Bitmap thumbImage = ThumbnailUtils.extractThumbnail(bitmap, 128, 128);
-                ByteArrayOutputStream bs = new ByteArrayOutputStream();
-                thumbImage.compress(Bitmap.CompressFormat.JPEG, 100, bs); //이미지가 클 경우 OutOfMemoryException 발생이 예상되어 압축
-
-                mImageViewCover.setImageBitmap(thumbImage);
+//                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), photoUri);
+//                Bitmap thumbImage = ThumbnailUtils.extractThumbnail(bitmap, 128, 128);
+//                ByteArrayOutputStream bs = new ByteArrayOutputStream();
+//                thumbImage.compress(Bitmap.CompressFormat.JPEG, 100, bs); //이미지가 클 경우 OutOfMemoryException 발생이 예상되어 압축
+//
+//                mImageViewCover.setImageBitmap(thumbImage);
                 uploadFileToFireBase();
 
             } catch (Exception e) {
@@ -366,6 +369,12 @@ public class VerifyActivity extends BaseActivity implements VerifyActivityView {
         hideProgressDialog();
 //        setResult(RESULT_OK);
         this.downloadUri = downloadUri;
+        RequestOptions sharedOptions2 =
+                new RequestOptions()
+                        .override(600, 600)
+                        .diskCacheStrategy(DiskCacheStrategy.DATA)
+                        .centerCrop();
+        Glide.with(this).load(downloadUri).apply(sharedOptions2).into(mImageViewCover);
     }
 
     @Override

@@ -15,7 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="임산부 인증"
-            android:textColor="@color/colorBlack"
+            android:layout_centerInParent="true"
+            android:textColor="@color/colorWhite"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -53,7 +54,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_weight="1"
-        android:background="#f3f4f9"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
+        android:gravity="center_horizontal"
         android:text="임산부임을 증명할 수 있는 자료를 업로드 해주시기 바랍니다." />
 
     <FrameLayout
@@ -64,11 +67,11 @@
             android:id="@+id/tv_verify_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorWhite"
             android:gravity="center"
             android:onClick="customOnClick"
             android:text="회원가입"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorPrimary"
             android:textSize="18sp"
             android:textStyle="bold" />
 
