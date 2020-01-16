@@ -14,6 +14,8 @@ import com.softsquared.android.superchallange2020.src.BaseActivity;
 import com.softsquared.android.superchallange2020.src.seat_choice.interfaces.ChoiceActivityView;
 import com.softsquared.android.superchallange2020.src.seat_choice.model.Result;
 
+import org.json.JSONException;
+
 import java.util.List;
 
 public class SeatChoiceActivity extends BaseActivity implements ChoiceActivityView {
@@ -42,14 +44,24 @@ public class SeatChoiceActivity extends BaseActivity implements ChoiceActivityVi
 
     }
 
+    public void reservationRequest(int seatNo) throws JSONException {
+        showProgressDialog();
+        final ChoiceService choiceService = new ChoiceService(this);
+        choiceService.reservationRequest(seatNo);
+    }
+
     public void customOnClick(View view) {
         switch (view.getId()) {
             case R.id.activity_seat_choice_iv_seat1:
-                if(seat1 == 0){
+                if (seat1 == 0) {
                     ChoiceDialog choiceDialog = new ChoiceDialog(mContext, new ChoiceDialog.CustomLIstener() {
                         @Override
                         public void yesClick() {
-
+                            try {
+                                reservationRequest(1);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
 
                         @Override
@@ -58,8 +70,7 @@ public class SeatChoiceActivity extends BaseActivity implements ChoiceActivityVi
                         }
                     });
                     choiceDialog.show();
-                }
-                else {
+                } else {
                     showCustomToast("이 좌석은 예약할 수 없습니다.");
                 }
                 break;
@@ -81,13 +92,14 @@ public class SeatChoiceActivity extends BaseActivity implements ChoiceActivityVi
 
     @Override
     public void getSeatSuccess(List<Result> results) {
+        hideProgressDialog();
 
         // seatA : seat no1, seatB : seat no2
         Result seatA = results.get(0);
         Result seatB = results.get(1);
 
         // 0: 사람 없음 1: 사람 있음 2: 임산부가 앉아 있음 3: 예약됨
-        switch (seatA.getStatus()){
+        switch (seatA.getStatus()) {
             case 0:
                 break;
             case 1:
@@ -98,7 +110,7 @@ public class SeatChoiceActivity extends BaseActivity implements ChoiceActivityVi
                 break;
         }
 
-        switch (seatB.getStatus()){
+        switch (seatB.getStatus()) {
             case 0:
                 break;
             case 1:
@@ -114,5 +126,13 @@ public class SeatChoiceActivity extends BaseActivity implements ChoiceActivityVi
     @Override
     public void getSeatFailure(String message) {
         showCustomToast("서버 연결 실패");
+    }
+
+    @Override
+    public void reservationRequsetSuccess() {
+        hideProgressDialog();
+        showProgressDialog();
+        final ChoiceService choiceService = new ChoiceService(this);
+        choiceService.tryGetSeat();
     }
 }

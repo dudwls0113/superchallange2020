@@ -9,4 +9,7 @@ public interface ChoiceActivityView {
     void getSeatSuccess(List<Result> results);
 
     void getSeatFailure(String message);
+
+    void reservationRequsetSuccess();
+
 }
