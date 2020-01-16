@@ -17,6 +17,7 @@ import androidx.core.app.NotificationCompat;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.softsquared.android.superchallange2020.R;
+import com.softsquared.android.superchallange2020.src.curation.CurationActivity;
 import com.softsquared.android.superchallange2020.src.main.MainActivity;
 
 import java.util.Random;
@@ -49,9 +50,9 @@ public class FireBaseMessagingService extends FirebaseMessagingService {
     }
 
     private void sendNotification(String messageTitle, String messageBody, int seatNo) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, CurationActivity.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-        stackBuilder.addParentStack(MainActivity.class);
+        stackBuilder.addParentStack(CurationActivity.class);
         stackBuilder.addNextIntent(intent);
         intent.putExtra("seatNo", seatNo);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

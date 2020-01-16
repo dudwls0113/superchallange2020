@@ -11,6 +11,7 @@ import com.softsquared.android.superchallange2020.R;
 import com.softsquared.android.superchallange2020.src.BaseActivity;
 import com.softsquared.android.superchallange2020.src.curation.CurationActivity;
 import com.softsquared.android.superchallange2020.src.main.MainActivity;
+import com.softsquared.android.superchallange2020.src.signUp.SignUpActivity;
 
 
 public class SplashActivity extends BaseActivity {
@@ -33,7 +34,7 @@ public class SplashActivity extends BaseActivity {
                 } catch (InterruptedException ignored) {
                 }
                 finish();
-                Intent intent = new Intent(getApplicationContext(), CurationActivity.class);
+                Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
                 startActivity(intent);
             }
         };

@@ -32,10 +32,10 @@ public class SignUpActivity extends BaseActivity {
     public void customOnClick(View view) {
         switch (view.getId()) {
             case R.id.tv_sign_up_btn:
-                if(mEdtPassword.getText().toString() != mEdtPasswordVerify.getText().toString()){
-                    showCustomToast("비밀번호가 다릅니다.");
-                    break;
-                }
+//                if(mEdtPassword.getText().toString() != mEdtPasswordVerify.getText().toString()){
+//                    showCustomToast("비밀번호가 다릅니다.");
+//                    break;
+//                }
 
                 Intent intent = new Intent(this, VerifyActivity.class);
                 intent.putExtra("id", mEdtId.getText().toString());
@@ -44,6 +44,8 @@ public class SignUpActivity extends BaseActivity {
                 startActivity(intent);
 
                 break;
+
+
             default:
                 break;
         }

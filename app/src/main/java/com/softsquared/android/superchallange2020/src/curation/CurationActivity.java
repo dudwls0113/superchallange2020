@@ -12,6 +12,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.softsquared.android.superchallange2020.R;
+import com.softsquared.android.superchallange2020.src.main.SeatCheckDialog;
+import com.softsquared.android.superchallange2020.src.seat_choice.SeatChoiceActivity;
 import com.softsquared.android.superchallange2020.src.station.StationActivity;
 
 public class CurationActivity extends AppCompatActivity {
@@ -42,5 +44,25 @@ public class CurationActivity extends AppCompatActivity {
 //                        patchFcmToken();
                     }
                 });
+
+        if (getIntent() != null) {
+            if (getIntent().getIntExtra("seatNo", 0) != 0) {
+                SeatCheckDialog seatChoiceActivity = new SeatCheckDialog(this, new SeatCheckDialog.CustomLIstener() {
+                    @Override
+                    public void yesClick() {
+
+                    }
+
+                    @Override
+                    public void noClick() {
+
+                    }
+                });
+                seatChoiceActivity.show();
+            } else {
+
+            }
+        }
+
     }
 }
