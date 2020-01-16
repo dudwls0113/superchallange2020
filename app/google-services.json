@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "867384627254",
+    "firebase_url": "https://superchallange2020.firebaseio.com",
+    "project_id": "superchallange2020",
+    "storage_bucket": "superchallange2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867384627254:android:5fa8d1ee09a4494ebd4897",
+        "android_client_info": {
+          "package_name": "com.softsquared.android.superchallange2020"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "867384627254-kae4ihbdla0t7fspog42st52ilj6gsrk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.softsquared.android.superchallange2020",
+            "certificate_hash": "0539a298123ec30132071df52db6b33f1525184e"
+          }
+        },
+        {
+          "client_id": "867384627254-3hhd965f6ig6c9fl4itldhkvopev0j1g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkX0RGUR5vwt_3bGcfAQ-0QGB3x883RbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "867384627254-3hhd965f6ig6c9fl4itldhkvopev0j1g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
