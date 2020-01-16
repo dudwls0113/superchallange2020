@@ -11,8 +11,12 @@ import android.widget.Spinner;
 
 import com.softsquared.android.superchallange2020.R;
 import com.softsquared.android.superchallange2020.src.BaseActivity;
+import com.softsquared.android.superchallange2020.src.seat_choice.interfaces.ChoiceActivityView;
+import com.softsquared.android.superchallange2020.src.seat_choice.model.Result;
 
-public class SeatChoiceActivity extends BaseActivity {
+import java.util.List;
+
+public class SeatChoiceActivity extends BaseActivity implements ChoiceActivityView {
 
     Spinner spinner;
     Context mContext;
@@ -32,6 +36,10 @@ public class SeatChoiceActivity extends BaseActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext, R.layout.custom_spinner, strings);
         spinner.setAdapter(adapter);
         spinner.setSelection(0);
+
+        final ChoiceService choiceService = new ChoiceService(this);
+        choiceService.tryGetSeat();
+
     }
 
     public void customOnClick(View view) {
@@ -70,4 +78,41 @@ public class SeatChoiceActivity extends BaseActivity {
         }
     }
 
+
+    @Override
+    public void getSeatSuccess(List<Result> results) {
+
+        // seatA : seat no1, seatB : seat no2
+        Result seatA = results.get(0);
+        Result seatB = results.get(1);
+
+        // 0: 사람 없음 1: 사람 있음 2: 임산부가 앉아 있음 3: 예약됨
+        switch (seatA.getStatus()){
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+
+        switch (seatB.getStatus()){
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+
+    }
+
+    @Override
+    public void getSeatFailure(String message) {
+        showCustomToast("서버 연결 실패");
+    }
 }

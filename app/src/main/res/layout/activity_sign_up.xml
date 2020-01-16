@@ -103,7 +103,7 @@
                     android:id="@+id/tv_sign_up_id_under"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:background="#f3f34f9" />
+                    android:background="#f3f4f9" />
 
                 <EditText
                     android:id="@+id/edt_sign_up_password"
