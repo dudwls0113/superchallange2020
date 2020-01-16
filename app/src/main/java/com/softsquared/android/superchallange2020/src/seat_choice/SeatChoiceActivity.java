@@ -82,7 +82,7 @@ public class SeatChoiceActivity extends BaseActivity implements ChoiceActivityVi
                 }
                 break;
             case R.id.activity_seat_choice_iv_seat4:
-                if (seat1 == 0) {
+                if (seat4 == 0) {
                     ChoiceDialog choiceDialog = new ChoiceDialog(mContext, new ChoiceDialog.CustomLIstener() {
                         @Override
                         public void yesClick() {
@@ -117,6 +117,8 @@ public class SeatChoiceActivity extends BaseActivity implements ChoiceActivityVi
         // seatA : seat no1, seatB : seat no2
         Result seatA = results.get(0);
         Result seatB = results.get(1);
+        seat1 = seatA.getStatus();
+        seat4 = seatB.getStatus();
 
         // 0: 사람 없음 1: 사람 있음 2: 임산부가 앉아 있음 3: 예약됨
         switch (seatA.getStatus()) {

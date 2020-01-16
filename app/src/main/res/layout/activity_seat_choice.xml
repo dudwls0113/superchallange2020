@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorPrimary"
+    android:orientation="vertical"
     tools:context=".src.seat_choice.SeatChoiceActivity">
 
     <FrameLayout
@@ -45,6 +45,7 @@
 
     </FrameLayout>
 
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,89 +71,205 @@
 
     </FrameLayout>
 
-    <FrameLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/src_seat">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="남은 여석"
-            android:textColor="@color/colorBlack"
-            
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-        </LinearLayout>
-
-
-    </FrameLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/activity_seat_choice_iv_seat1"
-            android:layout_width="80dp"
-            android:layout_height="300dp"
             android:layout_marginStart="20dp"
-            android:onClick="customOnClick"
-            android:src="@drawable/bg_round_gray" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginStart="20dp"
-            android:layout_weight="1" />
-
-        <ImageView
-            android:id="@+id/activity_seat_choice_iv_seat2"
-            android:layout_width="80dp"
-            android:layout_height="300dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:onClick="customOnClick"
-            android:src="@drawable/bg_round_gray" />
+            android:background="@drawable/src_seat">
 
-    </LinearLayout>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="700dp"
+                android:layout_marginTop="160dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_center"
+                />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/activity_seat_choice_iv_seat3"
-            android:layout_width="80dp"
-            android:layout_height="300dp"
-            android:onClick="customOnClick"
-            android:layout_marginStart="20dp"
-            android:src="@drawable/bg_round_gray" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="150dp"
+                    android:orientation="horizontal">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginStart="20dp"
-            android:layout_weight="1" />
+                    <ImageView
+                        android:id="@+id/activity_seat_choice_iv_seat1"
+                        android:layout_width="80dp"
+                        android:layout_height="300dp"
+                        android:layout_marginStart="20dp"
+                        android:onClick="customOnClick"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/bg_round_gray" />
 
-        <ImageView
-            android:id="@+id/activity_seat_choice_iv_seat4"
-            android:layout_width="80dp"
-            android:layout_height="300dp"
-            android:layout_marginEnd="20dp"
-            android:onClick="customOnClick"
-            android:src="@drawable/bg_round_gray" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="1" />
 
-    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/activity_seat_choice_iv_seat2"
+                        android:layout_width="80dp"
+                        android:layout_height="300dp"
+                        android:layout_marginEnd="20dp"
+                        android:onClick="customOnClick"
+                        android:src="@drawable/bg_round_gray" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/activity_seat_choice_iv_seat3"
+                        android:layout_width="80dp"
+                        android:layout_height="300dp"
+                        android:layout_marginStart="20dp"
+                        android:onClick="customOnClick"
+                        android:src="@drawable/bg_round_gray" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:id="@+id/activity_seat_choice_iv_seat4"
+                        android:layout_width="80dp"
+                        android:layout_height="300dp"
+                        android:layout_marginEnd="20dp"
+                        android:scaleType="fitXY"
+                        android:onClick="customOnClick"
+                        android:src="@drawable/bg_round_gray" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="남은 여석"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="19dp"
+                    android:text="2/2"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="60dp"
+                        android:src="@drawable/ic_circle_2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="65dp"
+                        android:text="  임산부 착석중"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="60dp"
+                        android:src="@drawable/ic_circle_1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="65dp"
+                        android:text="  비임산부 착석중"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/ic_circle_3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="  임산부 예약"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/ic_circle_0" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="  좌석 비어있음"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+    </ScrollView>
 
 </LinearLayout>
