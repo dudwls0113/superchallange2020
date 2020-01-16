@@ -1,6 +1,7 @@
 package com.softsquared.android.superchallange2020.src.curation.interfaces;
 
 import com.softsquared.android.superchallange2020.src.curation.model.ReservationResponse;
+import com.softsquared.android.superchallange2020.src.curation.model.VerifyResponse;
 import com.softsquared.android.superchallange2020.src.main.models.DefaultResponse;
 
 import okhttp3.RequestBody;
@@ -17,4 +18,7 @@ public interface ReservationRetrofitInterface {
 
     @POST("/soundRequest")
     Call<ReservationResponse> postSoundRequest(@Body RequestBody params);
+
+    @POST("/isVerify")
+    Call<VerifyResponse> getVerify(@Body RequestBody params);
 }

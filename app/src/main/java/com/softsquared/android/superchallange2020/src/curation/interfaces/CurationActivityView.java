@@ -5,4 +5,7 @@ public interface CurationActivityView {
     void reservationSuccess(String text);
 
     void reservationFailure(String message);
+
+    void getVerifySuccess(boolean isVerify);
+
 }

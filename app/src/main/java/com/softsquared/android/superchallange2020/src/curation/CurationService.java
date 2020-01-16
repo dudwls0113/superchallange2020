@@ -4,6 +4,7 @@ package com.softsquared.android.superchallange2020.src.curation;
 import com.softsquared.android.superchallange2020.src.curation.interfaces.CurationActivityView;
 import com.softsquared.android.superchallange2020.src.curation.interfaces.ReservationRetrofitInterface;
 import com.softsquared.android.superchallange2020.src.curation.model.ReservationResponse;
+import com.softsquared.android.superchallange2020.src.curation.model.VerifyResponse;
 
 import org.json.JSONObject;
 
@@ -46,7 +47,6 @@ class CurationService {
     }
 
 
-
     void postSoundRequest() {
         final ReservationRetrofitInterface reservationRetrofitInterface = getRetrofit().create(ReservationRetrofitInterface.class);
         reservationRetrofitInterface.postSoundRequest(RequestBody.create(MEDIA_TYPE_JSON, mParams.toString())).enqueue(new Callback<ReservationResponse>() {
@@ -68,5 +68,23 @@ class CurationService {
         });
     }
 
+    void getVerify() {
+        final ReservationRetrofitInterface reservationRetrofitInterface = getRetrofit().create(ReservationRetrofitInterface.class);
+        reservationRetrofitInterface.getVerify(RequestBody.create(MEDIA_TYPE_JSON, mParams.toString())).enqueue(new Callback<VerifyResponse>() {
+            @Override
+            public void onResponse(Call<VerifyResponse> call, Response<VerifyResponse> response) {
+                final VerifyResponse reservationResponse = response.body();
+                if (reservationResponse == null) {
+                    mCurationActivityView.reservationFailure(null);
+                    return;
+                }
+                mCurationActivityView.getVerifySuccess(reservationResponse.isVerify());
+            }
 
+            @Override
+            public void onFailure(Call<VerifyResponse> call, Throwable t) {
+                mCurationActivityView.reservationFailure(null);
+            }
+        });
+    }
 }

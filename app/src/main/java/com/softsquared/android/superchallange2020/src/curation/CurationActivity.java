@@ -25,6 +25,8 @@ public class CurationActivity extends BaseActivity implements CurationActivityVi
     TextView mTextViewJuan;
     String fcmToken;
     Context mContext;
+    boolean mIsVerify = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +38,14 @@ public class CurationActivity extends BaseActivity implements CurationActivityVi
         mTextViewJuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), StationActivity.class);
-                startActivity(intent);
+                if(mIsVerify){
+                    Intent intent = new Intent(getApplicationContext(), StationActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    showCustomToast("미인증 유저는 이용하실 수 없숩니다.");
+                }
+
             }
         });
 
@@ -106,5 +114,29 @@ public class CurationActivity extends BaseActivity implements CurationActivityVi
     public void reservationFailure(String message) {
         hideProgressDialog();
         showCustomToast(message);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        String id = getIntent().getStringExtra("id");
+
+        JSONObject params = new JSONObject();
+        try {
+            params.put("id", id);
+        } catch (Exception e) {
+            return;
+        }
+
+        final CurationService curationService = new CurationService((CurationActivityView)mContext ,params);
+        curationService.postSoundRequest();
+
+    }
+
+    @Override
+    public void getVerifySuccess(boolean isVerify) {
+        mIsVerify = isVerify;
+
     }
 }
