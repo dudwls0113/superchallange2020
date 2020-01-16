@@ -44,4 +44,29 @@ class CurationService {
             }
         });
     }
+
+
+
+    void postSoundRequest() {
+        final ReservationRetrofitInterface reservationRetrofitInterface = getRetrofit().create(ReservationRetrofitInterface.class);
+        reservationRetrofitInterface.postSoundRequest(RequestBody.create(MEDIA_TYPE_JSON, mParams.toString())).enqueue(new Callback<ReservationResponse>() {
+            @Override
+            public void onResponse(Call<ReservationResponse> call, Response<ReservationResponse> response) {
+                final ReservationResponse reservationResponse = response.body();
+                if (reservationResponse == null) {
+                    mCurationActivityView.reservationFailure(null);
+                    return;
+                }
+
+                mCurationActivityView.reservationSuccess(reservationResponse.getMessage());
+            }
+
+            @Override
+            public void onFailure(Call<ReservationResponse> call, Throwable t) {
+                mCurationActivityView.reservationFailure(null);
+            }
+        });
+    }
+
+
 }
