@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.softsquared.android.superchallange2020.R;
 import com.softsquared.android.superchallange2020.src.BaseActivity;
@@ -23,10 +24,12 @@ public class SeatChoiceActivity extends BaseActivity implements ChoiceActivityVi
 
     ImageView mIvSeat1;
     ImageView mIvSeat2;
+    TextView mTvSeat;
 
     Spinner spinner;
     Context mContext;
     String[] strings = {"1-1", "1-2", "1-3", "1-4"};
+    int mPeople;
 
 
     int seat1, seat2, seat3, seat4;
@@ -37,9 +40,11 @@ public class SeatChoiceActivity extends BaseActivity implements ChoiceActivityVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat_choice);
         mContext = this;
+        int mPeople;
 
         mIvSeat1 = findViewById(R.id.activity_seat_choice_iv_seat1);
         mIvSeat2 = findViewById(R.id.activity_seat_choice_iv_seat4);
+        mTvSeat = findViewById(R.id.tv_seat);
 
         spinner = findViewById(R.id.activity_seat_choice_spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext, R.layout.custom_spinner, strings);
@@ -119,11 +124,12 @@ public class SeatChoiceActivity extends BaseActivity implements ChoiceActivityVi
         Result seatB = results.get(1);
         seat1 = seatA.getStatus();
         seat4 = seatB.getStatus();
-
+        mPeople = 0;
         // 0: 사람 없음 1: 사람 있음 2: 임산부가 앉아 있음 3: 예약됨
         switch (seatA.getStatus()) {
             case 0:
                 mIvSeat1.setImageDrawable(getDrawable(R.drawable.ic_status_0));
+                mPeople++;
                 break;
             case 1:
                 mIvSeat1.setImageDrawable(getDrawable(R.drawable.ic_status_1));
@@ -139,6 +145,7 @@ public class SeatChoiceActivity extends BaseActivity implements ChoiceActivityVi
         switch (seatB.getStatus()) {
             case 0:
                 mIvSeat2.setImageDrawable(getDrawable(R.drawable.ic_status_0));
+                mPeople++;
                 break;
             case 1:
                 mIvSeat2.setImageDrawable(getDrawable(R.drawable.ic_status_1));
@@ -150,6 +157,8 @@ public class SeatChoiceActivity extends BaseActivity implements ChoiceActivityVi
                 mIvSeat2.setImageDrawable(getDrawable(R.drawable.ic_status_3));
                 break;
         }
+
+        mTvSeat.setText(String.valueOf(mPeople).concat("/2"));
 
     }
 

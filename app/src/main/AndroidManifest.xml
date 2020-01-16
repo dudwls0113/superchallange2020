@@ -18,17 +18,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
+        android:screenOrientation="portrait"
         tools:targetApi="n">
 
         <activity android:name=".src.seat_choice.SeatChoiceActivity">
         </activity>
         <activity android:name=".src.station.StationActivity" />
         <activity android:name=".src.curation.CurationActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".src.main.MainActivity">
 
@@ -40,11 +36,11 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".src.splash.SplashActivity">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
+                        <intent-filter>
+                            <action android:name="android.intent.action.MAIN" />
 
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+                            <category android:name="android.intent.category.LAUNCHER" />
+                        </intent-filter>
         </activity>
         <activity android:name=".src.signUp.SignUpActivity" />
         <activity android:name=".src.verify.VerifyActivity" />

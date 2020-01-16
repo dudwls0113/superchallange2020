@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,7 +23,7 @@ import com.softsquared.android.superchallange2020.src.station.StationActivity;
 import org.json.JSONObject;
 
 public class CurationActivity extends BaseActivity implements CurationActivityView {
-    TextView mTextViewJuan;
+    LinearLayout mTextViewJuan;
     String fcmToken;
     Context mContext;
     @Override
