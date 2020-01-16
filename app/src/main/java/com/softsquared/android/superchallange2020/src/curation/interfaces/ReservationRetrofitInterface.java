@@ -15,4 +15,6 @@ public interface ReservationRetrofitInterface {
     @POST("/reservation")
     Call<ReservationResponse> postReservation(@Body RequestBody params);
 
+    @POST("/soundRequest")
+    Call<ReservationResponse> postSoundRequest(@Body RequestBody params);
 }

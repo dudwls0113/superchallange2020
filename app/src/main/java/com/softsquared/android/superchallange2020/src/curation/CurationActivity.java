@@ -57,6 +57,7 @@ public class CurationActivity extends BaseActivity implements CurationActivityVi
                     @Override
                     public void yesClick() {
                         int seatNum = getIntent().getIntExtra("seatNo", 0);
+
                         JSONObject params = new JSONObject();
                         try {
                             params.put("seatNo", seatNum);
@@ -71,7 +72,20 @@ public class CurationActivity extends BaseActivity implements CurationActivityVi
 
                     @Override
                     public void noClick() {
+                        showProgressDialog();
 
+                        int seatNum = getIntent().getIntExtra("seatNo", 0);
+
+                        JSONObject params = new JSONObject();
+                        try {
+                            params.put("seatNo", seatNum);
+                        } catch (Exception e) {
+                            //   Log.d(TAG, "error: " + e);
+                            return;
+                        }
+
+                        final CurationService curationService = new CurationService((CurationActivityView)mContext ,params);
+                        curationService.postSoundRequest();
                     }
                 });
                 seatChoiceActivity.show();
