@@ -34,8 +34,16 @@ public class SplashActivity extends BaseActivity {
                 } catch (InterruptedException ignored) {
                 }
                 finish();
-                Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
-                startActivity(intent);
+
+                String id = getIntent().getStringExtra("id");
+                if(id == null){
+                    Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(getApplicationContext(), CurationActivity.class);
+                    startActivity(intent);
+                }
             }
         };
         splashThread.start();
