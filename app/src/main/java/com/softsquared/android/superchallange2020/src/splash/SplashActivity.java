@@ -13,6 +13,8 @@ import com.softsquared.android.superchallange2020.src.curation.CurationActivity;
 import com.softsquared.android.superchallange2020.src.main.MainActivity;
 import com.softsquared.android.superchallange2020.src.signUp.SignUpActivity;
 
+import static com.softsquared.android.superchallange2020.src.ApplicationClass.sSharedPreferences;
+
 
 public class SplashActivity extends BaseActivity {
 
@@ -35,7 +37,7 @@ public class SplashActivity extends BaseActivity {
                 }
                 finish();
 
-                String id = getIntent().getStringExtra("id");
+                String id = sSharedPreferences.getString("id", null);
                 if(id == null){
                     Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
                     startActivity(intent);

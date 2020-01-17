@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.icu.util.LocaleData;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,11 +24,14 @@ import com.softsquared.android.superchallange2020.src.station.StationActivity;
 
 import org.json.JSONObject;
 
+import static com.softsquared.android.superchallange2020.src.ApplicationClass.sSharedPreferences;
+
 public class CurationActivity extends BaseActivity implements CurationActivityView {
     LinearLayout mTextViewJuan;
     String fcmToken;
     Context mContext;
     boolean mIsVerify = false;
+    TextView mTextViewHide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +40,24 @@ public class CurationActivity extends BaseActivity implements CurationActivityVi
         mContext = this;
 
         mTextViewJuan = findViewById(R.id.activity_curation_tv_juan);
+        mTextViewHide = findViewById(R.id.hide);
+        mTextViewHide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HeartCheckDialog heartCheckDialog = new HeartCheckDialog(mContext, new HeartCheckDialog.CustomLIstener() {
+                    @Override
+                    public void yesClick() {
 
+                    }
+
+                    @Override
+                    public void noClick() {
+
+                    }
+                });
+                heartCheckDialog.show();
+            }
+        });
         mTextViewJuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,21 +130,21 @@ public class CurationActivity extends BaseActivity implements CurationActivityVi
     @Override
     public void reservationSuccess(String text) {
         hideProgressDialog();
-        showCustomToast(text);
+//        showCustomToast(text);
     }
 
     @Override
     public void reservationFailure(String message) {
         hideProgressDialog();
-        showCustomToast(message);
+//        showCustomToast(message);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        String id = getIntent().getStringExtra("id");
-
+//        String id = getIntent().getStringExtra("id");
+        String id = sSharedPreferences.getString("id", null);
         JSONObject params = new JSONObject();
         try {
             params.put("id", id);
@@ -131,12 +153,15 @@ public class CurationActivity extends BaseActivity implements CurationActivityVi
         }
 
         final CurationService curationService = new CurationService((CurationActivityView)mContext ,params);
-        curationService.postSoundRequest();
+        curationService.getVerify();
+
+        Log.d("로그", "아이디 "+id);
 
     }
 
     @Override
     public void getVerifySuccess(boolean isVerify) {
+        Log.d("로그", "isVerify "+isVerify);
         mIsVerify = isVerify;
 
     }

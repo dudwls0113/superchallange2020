@@ -13,7 +13,7 @@
         android:layout_height="120dp"
         android:gravity="center"
         android:lineSpacingExtra="8sp"
-        android:text="예약하신 좌석에 사람이 감지되었습니다 \n 좌석에 앉으셨나요?"
+        android:text="현재 심박수가 110이상입니다! \n 아이를 위해 건강을 챙겨주세요"
         android:textColor="@color/colorBlack"
         android:textSize="15sp" />
 
@@ -33,19 +33,19 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="네"
+            android:text="더 알아보기"
             android:textColor="@color/colorPrimary"
             android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/dialog_must_update_cancel"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="아니요"
-            android:textColor="@color/colorPrimary"
-            android:textSize="14sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/dialog_must_update_cancel"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:text="아니요"-->
+<!--            android:textColor="@color/colorPrimary"-->
+<!--            android:textSize="14sp" />-->
 
 
     </LinearLayout>

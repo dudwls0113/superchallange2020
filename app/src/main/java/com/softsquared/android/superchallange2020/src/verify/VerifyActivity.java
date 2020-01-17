@@ -392,6 +392,8 @@ public class VerifyActivity extends BaseActivity implements VerifyActivityView {
         Log.d("로그", mId);
         editor.putString("id", mId);
         editor.apply();
+
+
         Intent intent = new Intent(mContext, CurationActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
