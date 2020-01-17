@@ -254,7 +254,7 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="35dp"
+                        android:layout_marginStart="34dp"
                         android:layout_marginTop="10dp"
                         android:src="@drawable/ic_circle_0" />
 

@@ -389,6 +389,7 @@ public class VerifyActivity extends BaseActivity implements VerifyActivityView {
         hideProgressDialog();
         showCustomToast("회원가입 성공");
         SharedPreferences.Editor editor = sSharedPreferences.edit();
+        Log.d("로그", mId);
         editor.putString("id", mId);
         editor.apply();
         Intent intent = new Intent(mContext, CurationActivity.class);
